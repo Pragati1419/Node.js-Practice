@@ -1,29 +1,26 @@
-// Challenge Time
-// 1: Create a folder named it Tha
- // 2: Create a file in it named bio.txt and data into it.
-// 3: Add more data into the file at the end of the existing data.
-// 4: Read the data without getting the buffer data at first.
-// 5: Rename the file name to mybio.txt
-// 6: now delete both the file and the folder
+/* 
+-> The http.createServer() method includes request and response  parameters
+which is supplied by Node.js.
 
-const fs = require('fs');
+ -> The request object can be used to get information about the current Https request.
 
-//creating new file
+eg url,request header , and data.
 
-fs.writeFileSync("bio.txt" , " Bio  ,  My name is Pragati");
+-> The response object can be used to send a response for a current HTTPS
 
-//Add more data to the file
+->If the response from the HTTP server is supposed to be displayed as HTML .
+-> you should include an HTTP header with the correct content type and
 
-fs.appendFileSync("bio.txt", " I am a Developer");
-
-//read the data without buffer data
-
-const buff_data = fs.readFileSync("bio.txt");
-org_data = buff_data.toString();
-console.log(org_data);
-
-//Rename the file
-
-fs.renameSync("bio.txt", "mybio.txt");
+*/
 
 
+const http = require('http');
+
+const server = http.createServer((req, res)  => {
+    res.end("Hello from other side!");
+});
+
+server.listen(3000 ," 127.0. 0.1."  , () => {
+
+    console.log("listening to the port no 8000");
+});
