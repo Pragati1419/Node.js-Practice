@@ -14,38 +14,30 @@ eg url,request header , and data.
 */
 
 
-/*
-const http = require('http');
 
-const server = http.createServer((req, res)  => {
-    res.end("Hello from other side!");
-});
-
-server.listen(49153 ," 127.0.0.1."  , () => {
-
-    console.log("listening to the port no 49153");
-});
-
-*/
-
-
-/*const http = require("http");
-
-http
-  .createServer((req, resp) => {
-    resp.write("Hello from server side");
-    resp.end();
-  })
-  .listen(4500);
-  */
   const http = require("http");
 
   const server = http.createServer((req, res) => {
+   // console.log(req.url);
+
+   if(req.url == "/"){
     res.end("Hello from other side ");
+   }
+   else if(req.url == "/about"){
+    res.end("I am Pragati ");
+   }
+
+   else if(req.url == "/Email")
+    res.end("pragatikri31@gmail.com");
+
+    else{
+      res.writeHead(404);
+      res.end(" <h1>  404 error Page . Page doesn't Exists </h1>");
+    }
   });
   
-  server.listen(49154, "127.0.0.1", () => {
-    console.log("listening to the port no 49154");
+  server.listen(8000, "127.0.0.1", () => {
+    console.log("listening to the port no 8000");
   }); 
 
 
